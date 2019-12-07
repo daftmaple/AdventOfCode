@@ -1,14 +1,12 @@
 #!/usr/bin/perl -w
 
 open F, "<q02_input.txt" or die;
-
 @arr = split /,/, <F>;
+close F;
 
 $noun = 0;
 $verb = 0;
 $fin = 0;
-
-my $a = 0;
 
 while ($noun < 100) {
     $verb = 0;

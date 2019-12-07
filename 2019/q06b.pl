@@ -11,6 +11,7 @@ while (<F>) {
     my @split = split /\)/, $_;
     $dictionary{$split[1]} = $split[0];
 }
+close F;
 
 my @san;
 my @you;

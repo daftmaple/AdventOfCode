@@ -1,8 +1,8 @@
 #!/usr/bin/perl
 
 open F, "<q02_input.txt" or die;
-
 @arr = split /,/, <F>;
+close F;
 
 $arr[1] = 12;
 $arr[2] = 2;

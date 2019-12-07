@@ -7,6 +7,7 @@ $a = 0;
 while (<F>) {
     $a += recsum($_);
 }
+close F;
 
 sub recsum {
     my $f = int($_[0] / 3) - 2;
