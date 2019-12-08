@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
 open F, "<q08_input.txt" or die;
 $str = <F>;
@@ -15,8 +15,6 @@ while ($i < length($str) / $layer) {
     $i++;
 }
 
-$zeros = 100;
-$leastidx = 0;
 $i = 0;
 
 @overall = (2) x $layer;

@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
 open F, "<q08_input.txt" or die;
 $str = <F>;
@@ -43,4 +43,3 @@ sub count {
     }
     return $ct;
 }
-
