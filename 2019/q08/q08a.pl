@@ -20,7 +20,6 @@ $leastidx = 0;
 $i = 0;
 foreach $k (@arr) {
     $count = count($k, 0);
-    # print "$i, $count: $k\n";
     if ($count < $zeros) {
         $leastidx = $i;
         $zeros = $count;
@@ -34,11 +33,9 @@ print "\n";
 sub count {
     $chk = shift @_;
     $no = shift @_;
-    # print "$chk\n";
     @chopped = split //, $chk;
     $ct = 0;
     foreach $char (@chopped) {
-        # print "$char $ct\n";
         $ct++ if ($char == $no);
     }
     return $ct;

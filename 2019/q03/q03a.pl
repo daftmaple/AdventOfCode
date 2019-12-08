@@ -11,12 +11,7 @@ chomp $m1;
 
 close F;
 
-my @array = ();
-for (0..999){
-    my @arr = (0) x 1000;
-    my $arr = \@arr;
-    push @array, \@arr;
-}
+my %array;
 
 $cursX = 0;
 $cursY = 0;
@@ -31,11 +26,16 @@ for $k (@method1) {
 }
 
 $d = 1;
-while ($d < 1000) {
+while (1) {
     $cursX = $d;
     while ($cursX >= 0) {
         $cursY = $d - $cursX;
-        print "$d\n" and exit if $array[$cursX][$cursY] > 1;
+        # print "$cursX, $cursY\n";
+        if (!defined $array->{$cursX}{$cursY}) {
+            $cursX--;
+            next;
+        }
+        print "$d\n" and exit if $array->{$cursX}{$cursY} > 1;
         $cursX--;
     }
     $d++;
@@ -80,6 +80,6 @@ sub strwrite {
 sub incr {
     my $cursX = shift @_;
     my $cursY = shift @_;
-    $array[$cursX][$cursY]++;
+    $array->{$cursX}{$cursY}++;
 }
 
