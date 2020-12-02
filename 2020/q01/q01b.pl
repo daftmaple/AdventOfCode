@@ -10,9 +10,9 @@ close F;
 $size = scalar @a;
 $i = 0;
 
-while ($i < $size - 1) {
+while ($i < $size - 2) {
     $j = $i + 1;
-    while ($j < $size) {
+    while ($j < $size - 1) {
         $k = $j + 1;
         while ($k < $size) {
             if ($a[$i] + $a[$j] + $a[$k] == 2020) {
