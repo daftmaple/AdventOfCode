@@ -2,7 +2,7 @@
 
 @array = ();
 $index = 0;
-open F, "input.txt" or die;
+open F, "q04_input.txt" or die;
 while (<F>) {
     chomp $_;
     if (length($_) == 0) {
@@ -17,31 +17,31 @@ $count = 0;
 for (@array) {
     my $valid = 0;
     
-    my $byr = ($_ =~ /(byr):(\d+)/)[1];
+    my $byr = ($_ =~ /(?:byr):(\d+)/)[0];
     $valid++ if (defined $byr) and ($byr >= 1920 and $byr <= 2002);
     
-    my $iyr = ($_ =~ /(iyr):(\d+)/)[1];
+    my $iyr = ($_ =~ /(?:iyr):(\d+)/)[0];
     $valid++ if (defined $iyr) and ($iyr >= 2010 and $iyr <= 2020);
 
-    my $eyr = ($_ =~ /(eyr):(\d+)/)[1];
+    my $eyr = ($_ =~ /(?:eyr):(\d+)/)[0];
     $valid++ if (defined $eyr) and ($eyr >= 2020 and $eyr <= 2030);
 
-    my @hgt = ($_ =~ /(hgt):(\d+)(cm|in)/);
-    if (defined $hgt[1] and defined $hgt[2]) {
-        if ($hgt[2] eq "cm" and $hgt[1] >= 150 and $hgt[1] <= 193) {
+    my @hgt = ($_ =~ /(?:hgt):(\d+)(cm|in)/);
+    if (defined $hgt[0] and defined $hgt[1]) {
+        if ($hgt[1] eq "cm" and $hgt[0] >= 150 and $hgt[0] <= 193) {
             $valid++;
-        } elsif ($hgt[2] eq "in" and $hgt[1] >= 59 and $hgt[1] <= 76) {
+        } elsif ($hgt[1] eq "in" and $hgt[0] >= 59 and $hgt[0] <= 76) {
             $valid++;
         }
     }
 
-    my $hcl = ($_ =~ /(hcl):#([0-9a-f]{6})/)[1];
+    my $hcl = ($_ =~ /(?:hcl):#([0-9a-f]{6})/)[0];
     $valid++ if (defined $hcl);
 
-    my $ecl = ($_ =~ /(ecl):(amb|blu|brn|gry|grn|hzl|oth)\b/)[1];
+    my $ecl = ($_ =~ /(?:ecl):(amb|blu|brn|gry|grn|hzl|oth)\b/)[0];
     $valid++ if (defined $ecl);
 
-    my $pid = ($_ =~ /(pid):(\d{9})\b/)[1];
+    my $pid = ($_ =~ /(?:pid):(\d{9})\b/)[0];
     $valid++ if (defined $pid); 
 
     if ($valid >= 7) {
