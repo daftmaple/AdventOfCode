@@ -4,10 +4,7 @@ my $all = 0;
 open F, "<q02_input.txt" or die;
 while (<F>) {
     chomp $_;
-    my $min = ($_ =~ /^(\d+)\-/)[0];
-    my $max = ($_ =~ /\-(\d+)/)[0];
-    my $char = ($_ =~ /^.*(\w+)\:/)[0];
-    my $word = ($_ =~ /(\w+)$/)[0];
+    my ($min, $max, $char, $word) = $_ =~ /^(\d+)\-(\d+)\s(\w+)\:\s(\w+)$/;
     my $count = 0;
     for $i (0..length($word)-1) {
         if (substr($word, $i, 1) eq $char) {
