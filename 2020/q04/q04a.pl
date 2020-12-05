@@ -11,6 +11,7 @@ while (<F>) {
         $array[$index] .= " " . $_;
     }
 }
+close F;
 
 $count = 0;
 

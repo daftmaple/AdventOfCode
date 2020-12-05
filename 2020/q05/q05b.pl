@@ -13,6 +13,7 @@ while (<F>) {
 
     push @array, $sID;
 }
+close F;
 
 @sorted = sort @array;
 

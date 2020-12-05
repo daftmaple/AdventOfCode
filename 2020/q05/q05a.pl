@@ -13,5 +13,6 @@ while (<F>) {
 
     $highest = $sID if $sID > $highest;
 }
+close F;
 
 print "$highest\n";
