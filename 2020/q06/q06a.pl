@@ -15,15 +15,10 @@ close F;
 
 $count = 0;
 foreach my $str (@array) {
+    my @chars = split //, $str;
     my %hash;
-    for my $i (0..length($str)-1) {
-        my $char = substr($str, $i, 1);
-        $hash{$char}++;
-    }
-    my $ct = 0;
-    for my $i ("a".."z") {
-        $ct++ if defined $hash{$i};
-    }
+    @hash{@chars} = 1;
+    my $ct = scalar keys %hash;
     $count += $ct;
 }
 

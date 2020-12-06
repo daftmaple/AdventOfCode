@@ -19,8 +19,7 @@ $count = 0;
 for (my $idx = 0; $idx < scalar(@array); $idx++) {
     my $str = $array[$idx];
     my %hash;
-    for my $i (0..length($str)-1) {
-        my $char = substr($str, $i, 1);
+    foreach my $char (split('', $str)) {
         $hash{$char}++;
     }
     my $ct = 0;
