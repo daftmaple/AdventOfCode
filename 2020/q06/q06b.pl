@@ -1,8 +1,11 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
-@array = ();
-@count = ();
-$index = 0;
+use strict;
+use warnings;
+
+my @array = ();
+my @count = ();
+my $index = 0;
 open F, "q06_input.txt" or die;
 while (<F>) {
     chomp $_;
@@ -15,7 +18,7 @@ while (<F>) {
 }
 close F;
 
-$count = 0;
+my $count = 0;
 for (my $idx = 0; $idx < scalar(@array); $idx++) {
     my $str = $array[$idx];
     my %hash;

@@ -1,6 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
-@array = ();
+use strict;
+use warnings;
+
+my @array = ();
 open F, "q05_input.txt" or die;
 while (<F>) {
     chomp $_;
@@ -15,11 +18,11 @@ while (<F>) {
 }
 close F;
 
-@sorted = sort @array;
+my @sorted = sort @array;
 
 for (my $i = 0; $i < scalar(@sorted) - 1; $i++) {
     if ($sorted[$i] + 2 == $sorted[$i + 1]) {
-        $result = $sorted[$i] + 1;
+        my $result = $sorted[$i] + 1;
         print "$result\n";
         exit;
     }

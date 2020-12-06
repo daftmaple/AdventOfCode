@@ -1,7 +1,10 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
-@array = ();
-$index = 0;
+use strict;
+use warnings;
+
+my @array = ();
+my $index = 0;
 open F, "q06_input.txt" or die;
 while (<F>) {
     chomp $_;
@@ -13,7 +16,7 @@ while (<F>) {
 }
 close F;
 
-$count = 0;
+my $count = 0;
 foreach my $str (@array) {
     my @chars = split //, $str;
     my %hash;

@@ -1,6 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
-$highest = 0;
+use strict;
+use warnings;
+
+my $highest = 0;
 open F, "q05_input.txt" or die;
 while (<F>) {
     chomp $_;
