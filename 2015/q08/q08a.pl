@@ -1,4 +1,6 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
+use strict;
+use warnings;
 
 my @strings = ();
 open F, "<q08_input.txt" or die;

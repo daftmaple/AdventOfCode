@@ -1,4 +1,6 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
+use strict;
+use warnings;
 
 die if (@ARGV != 1);
 $inp = $ARGV[0];

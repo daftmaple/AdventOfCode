@@ -1,4 +1,6 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
+use strict;
+use warnings;
 
 die "Need prog input" if (@ARGV != 1);
 open F, "<q05_input.txt" or die;

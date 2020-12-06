@@ -1,4 +1,6 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
+use strict;
+use warnings;
 
 open F, "<q09_input.txt" or die;
 @arr = split /,/, <F>;
