@@ -5,7 +5,7 @@ use warnings;
 my @array = ();
 open F, "q05_input.txt" or die;
 while (<F>) {
-    chomp $_;
+    chomp;
     s/[FL]/0/g;
     s/[BR]/1/g;
     my $res = $_;

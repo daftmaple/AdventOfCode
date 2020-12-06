@@ -9,7 +9,7 @@ my $total = -2;
 my $common = '';
 
 while (<F>) {
-    chomp $_;
+    chomp;
     my @split = split /\)/, $_;
     $dictionary{$split[1]} = $split[0];
 }

@@ -6,7 +6,7 @@ my @strings = ();
 
 open F, "<q12_input.txt" or die;
 while (<F>) {
-    chomp $_;
+    chomp;
     push @strings, $_;
 }
 close F;

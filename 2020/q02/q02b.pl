@@ -5,7 +5,7 @@ use warnings;
 my $all = 0;
 open F, "<q02_input.txt" or die;
 while (<F>) {
-    chomp $_;
+    chomp;
     my ($min, $max, $char, $word) = $_ =~ /^(\d+)\-(\d+)\s(\w+)\:\s(\w+)$/;
     my @chars = split //, $word;
     my $count = 0;

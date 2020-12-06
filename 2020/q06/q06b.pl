@@ -7,7 +7,7 @@ my @count = ();
 my $index = 0;
 open F, "q06_input.txt" or die;
 while (<F>) {
-    chomp $_;
+    chomp;
     if (length($_) == 0) {
         $index++;
     } else {

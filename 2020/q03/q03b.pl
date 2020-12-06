@@ -5,7 +5,7 @@ use warnings;
 @array = ();
 open F, "<q03_input.txt" or die;
 while (<F>) {
-    chomp $_;
+    chomp;
     push @array, $_;
 }
 close F;

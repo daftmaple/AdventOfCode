@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-$area = 0;
+my $area = 0;
 open F, "<q02_input.txt" or die;
 while (<F>) {
     chomp;

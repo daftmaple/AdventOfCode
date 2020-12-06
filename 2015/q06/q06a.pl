@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-@instr = ();
+my @instr = ();
 open F, "<q06_input.txt" or die;
 while (<F>) {
     chomp;
@@ -10,7 +10,7 @@ while (<F>) {
 }
 close F;
 
-%lights;
+my %lights;
 
 foreach my $inst (@instr) {
     my @num = $inst =~ /(\d+)/g;
@@ -58,7 +58,7 @@ foreach my $inst (@instr) {
     }
 }
 
-$c = 0;
+my $c = 0;
 foreach my $a (keys %lights) {
     foreach my $v (values %{$lights{$a}}) {
         $c++ if $v;

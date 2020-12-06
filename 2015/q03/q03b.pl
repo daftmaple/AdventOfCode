@@ -3,19 +3,19 @@ use strict;
 use warnings;
 
 open F, "<q03_input.txt" or die;
-@methods = split //, <F>;
+my @methods = split //, <F>;
 close F;
 
-%coord;
+my %coord;
 
-$currXa = 0;
-$currYa = 0;
-$currXb = 0;
-$currYb = 0;
+my $currXa = 0;
+my $currYa = 0;
+my $currXb = 0;
+my $currYb = 0;
 
 $coord{$currXa}{$currYa}++;
 
-$bin = 0;
+my $bin = 0;
 foreach my $method (@methods) {
     if ($bin) {
         $bin = 0;
@@ -34,7 +34,7 @@ foreach my $method (@methods) {
     }
 }
 
-$c = 0;
+my $c = 0;
 foreach my $X (keys %coord) {
     foreach my $v (values %{$coord{$X}}) {
         $c++;

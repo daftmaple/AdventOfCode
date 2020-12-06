@@ -4,7 +4,7 @@ use warnings;
 
 open F, "<q01_input.txt" or die;
 while (<F>) {
-    chomp $_;
+    chomp;
     push @a, $_;
 }
 close F;

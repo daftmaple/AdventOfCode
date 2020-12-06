@@ -9,7 +9,7 @@ my %node;
 my $total = 0;
 
 while (<F>) {
-    chomp $_;
+    chomp;
     my @split = split /\)/, $_;
     $dictionary{$split[1]} = $split[0];
     $node{$split[1]} += 1;

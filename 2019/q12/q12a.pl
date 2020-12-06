@@ -8,7 +8,7 @@ my @moons = ();
 
 open F, "<q12_input.txt" or die;
 while (<F>) {
-    chomp $_;
+    chomp;
     my %hash;
 
     # Set coordinate

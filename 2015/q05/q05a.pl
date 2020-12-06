@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-@alist = ();
+my @alist = ();
 open F, "<q05_input.txt" or die;
 while (<F>) {
     chomp;
@@ -10,7 +10,7 @@ while (<F>) {
 }
 close F;
 
-$count = 0;
+my $count = 0;
 foreach my $str (@alist) {
     $count++ if nice($str);
 }
