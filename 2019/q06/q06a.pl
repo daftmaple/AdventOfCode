@@ -21,7 +21,7 @@ for (keys %node) {
     # $_ is a distinct value of child (or parent, but will never be root node)
     # Skip if not one, since it is not the last child
     next if $node{$_} != 1;
-    $e = $_;
+    my $e = $_;
     while (exists $dictionary{$e}) {
         $e = $dictionary{$e};
         $total++;

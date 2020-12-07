@@ -18,13 +18,13 @@ close F;
 my @san;
 my @you;
 
-$e = $dictionary{'SAN'};
+my $e = $dictionary{'SAN'};
 while (exists $dictionary{$e}) {
     push @san, $e;
     $e = $dictionary{$e};
 }
 
-$f = $dictionary{'YOU'};
+my $f = $dictionary{'YOU'};
 while (exists $dictionary{$f}) {
     push @you, $f;
     $f = $dictionary{$f};

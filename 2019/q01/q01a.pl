@@ -4,7 +4,7 @@ use warnings;
 
 open F, "<q01_input.txt" or die;
 
-$a = 0;
+my $a = 0;
 
 while (<F>) {
     my $t = int($_ / 3) - 2;

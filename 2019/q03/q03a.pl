@@ -4,40 +4,40 @@ use warnings;
 
 open F, "<q03_input.txt" or die;
 
-$m0 = <F>;
+my $m0 = <F>;
 chomp $m0;
-$m1 = <F>;
+my $m1 = <F>;
 chomp $m1;
-@method0 = split /,/, $m0;
-@method1 = split /,/, $m1;
+my @method0 = split /,/, $m0;
+my @method1 = split /,/, $m1;
 
 close F;
 
 my %array;
 
-$cursX = 0;
-$cursY = 0;
-for $k (@method0) {
+my $cursX = 0;
+my $cursY = 0;
+for my $k (@method0) {
     strwrite($k);
 }
 
 $cursX = 0;
 $cursY = 0;
-for $k (@method1) {
+for my $k (@method1) {
     strwrite($k);
 }
 
-$d = 1;
+my $d = 1;
 while (1) {
     $cursX = $d;
     while ($cursX >= 0) {
         $cursY = $d - $cursX;
         # print "$cursX, $cursY\n";
-        if (!defined $array->{$cursX}{$cursY}) {
+        if (!defined $array{$cursX}{$cursY}) {
             $cursX--;
             next;
         }
-        print "$d\n" and exit if $array->{$cursX}{$cursY} > 1;
+        print "$d\n" and exit if $array{$cursX}{$cursY} > 1;
         $cursX--;
     }
     $d++;
@@ -82,6 +82,6 @@ sub strwrite {
 sub incr {
     my $cursX = shift @_;
     my $cursY = shift @_;
-    $array->{$cursX}{$cursY}++;
+    $array{$cursX}{$cursY}++;
 }
 

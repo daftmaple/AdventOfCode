@@ -3,12 +3,12 @@ use strict;
 use warnings;
 
 open F, "<q02_input.txt" or die;
-@arr = split /,/, <F>;
+my @arr = split /,/, <F>;
 close F;
 
-$noun = 0;
-$verb = 0;
-$fin = 0;
+my $noun = 0;
+my $verb = 0;
+my $fin = 0;
 
 while ($noun < 100) {
     $verb = 0;

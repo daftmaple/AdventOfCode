@@ -4,14 +4,14 @@ use warnings;
 
 die "Need prog input" if (@ARGV != 1);
 open F, "<q05_input.txt" or die;
-@arr = split /,/, <F>;
+my @arr = split /,/, <F>;
 close F;
 
 my $input = $ARGV[0];
 
 my $output = 0;
 
-$a = 0;
+my $a = 0;
 while ($a < (@arr)) {
     my $inst = $arr[$a];
 
