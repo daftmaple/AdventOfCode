@@ -10,8 +10,7 @@ while (<F>) {
     my @bags = ($_ =~ /(\d+ \w+ \w+) bags?/g);
     foreach my $bag (@bags) {
         my $col = ($bag =~ /\d+ (\w+ \w+)/)[0];
-        my $num = int(($bag =~ /(\d+)/)[0]);
-        # print "$col $num\n";
+        my $num = ($bag =~ /(\d+)/)[0];
         $bagKeys{$container}{$col} = $num;
     }
 }
