@@ -6,9 +6,9 @@ open F, "q08_input.txt" or die;
 chomp(my @lines = <F>);
 close F;
 
-my $result = 0;
+my $result;
 
-for (my $i = 0; $i < scalar(@lines); $i++) {
+for (my $i = 0; $i < scalar(@lines) and !defined $result; $i++) {
     my $inst = ($lines[$i] =~ /^(\w+) [+-]\d+$/)[0];
     next if $inst eq "acc";
     my ($check, $value) = reloop($i);
