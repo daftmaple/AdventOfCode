@@ -9,8 +9,7 @@ close F;
 my $result;
 
 for (my $i = 0; $i < scalar(@lines) and !defined $result; $i++) {
-    my $inst = ($lines[$i] =~ /^(\w+) [+-]\d+$/)[0];
-    next if $inst eq "acc";
+    next if ($lines[$i] =~ /^(\w+) [+-]\d+$/)[0] eq "acc";
     my ($check, $value) = reloop($i);
     $result = $value if $check eq "found";
 }
@@ -32,21 +31,18 @@ sub reloop {
         my ($inst, $sym, $arg) = $line =~ /^(\w+) ([+-])(\d+)$/g;
         $arg *= -1 if $sym eq "-";
         
+        if ($pointer == $swap) {
+            $inst = "jmp" if $inst eq "nop";
+            $inst = "nop" if $inst eq "jmp";
+        }
+
         if ($inst eq "acc") {
             $acc += $arg;
             $pointer++;
         } elsif ($inst eq "jmp") {
-            if ($pointer == $swap) {
-                $pointer++;
-            } else {
-                $pointer += $arg;
-            }
+            $pointer += $arg;
         } elsif ($inst eq "nop") {
-            if ($pointer == $swap) {
-                $pointer += $arg;
-            } else {
-                $pointer++;
-            }
+            $pointer++;
         }
     }
 
