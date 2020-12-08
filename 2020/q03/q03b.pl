@@ -2,12 +2,8 @@
 use strict;
 use warnings;
 
-@array = ();
 open F, "<q03_input.txt" or die;
-while (<F>) {
-    chomp;
-    push @array, $_;
-}
+chomp(my @array = <F>);
 close F;
 
 my $result = count(1, 1) * count(3, 1) * count(5, 1) * count(7, 1) * count(1, 2);

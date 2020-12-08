@@ -2,12 +2,8 @@
 use strict;
 use warnings;
 
-my @instr = ();
 open F, "<q06_input.txt" or die;
-while (<F>) {
-    chomp;
-    push @instr, $_;
-}
+chomp(my @instr = <F>);
 close F;
 
 my %lights;

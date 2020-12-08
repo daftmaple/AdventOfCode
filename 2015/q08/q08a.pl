@@ -2,12 +2,8 @@
 use strict;
 use warnings;
 
-my @strings = ();
 open F, "<q08_input.txt" or die;
-while (<F>) {
-    chomp;
-    push @strings, $_;
-}
+chomp(my @strings = <F>);
 close F;
 
 my $literal = 0;

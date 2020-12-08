@@ -2,13 +2,8 @@
 use strict;
 use warnings;
 
-my @strings = ();
-
 open F, "<q12_input.txt" or die;
-while (<F>) {
-    chomp;
-    push @strings, $_;
-}
+chomp(my @strings = <F>);
 close F;
 
 my @moons = generate(\@strings);

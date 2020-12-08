@@ -3,22 +3,19 @@ use strict;
 use warnings;
 
 open F, "<q01_input.txt" or die;
-while (<F>) {
-    chomp;
-    push @a, $_;
-}
+chomp(my @a = <F>);
 close F;
 
-$size = scalar @a;
-$i = 0;
+my $size = scalar @a;
+my $i = 0;
 
 while ($i < $size - 2) {
-    $j = $i + 1;
+    my $j = $i + 1;
     while ($j < $size - 1) {
-        $k = $j + 1;
+        my $k = $j + 1;
         while ($k < $size) {
             if ($a[$i] + $a[$j] + $a[$k] == 2020) {
-                $result = $a[$i] * $a[$j] * $a[$k];
+                my $result = $a[$i] * $a[$j] * $a[$k];
                 print "$result\n";
                 exit;
             }

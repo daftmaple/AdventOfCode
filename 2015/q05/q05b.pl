@@ -2,12 +2,8 @@
 use strict;
 use warnings;
 
-my @alist = ();
 open F, "<q05_input.txt" or die;
-while (<F>) {
-    chomp;
-    push @alist, $_;
-}
+chomp(my @alist = <F>);
 close F;
 
 my $count = 0;
