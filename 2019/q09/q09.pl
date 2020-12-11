@@ -3,14 +3,14 @@ use strict;
 use warnings;
 
 open F, "<q09_input.txt" or die;
-@arr = split /,/, <F>;
+my @arr = split /,/, <F>;
 close F;
 
 my @io = ();
 push @io, $ARGV[0] if (@ARGV > 0);    # Test mode
 
-$a = 0;     # Instruction pointer
-$rbase = 0;
+my $a = 0;     # Instruction pointer
+my $rbase = 0;
 
 while ($a < (@arr)) {
     my $inst = $arr[$a];
