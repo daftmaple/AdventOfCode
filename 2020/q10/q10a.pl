@@ -8,7 +8,7 @@ close F;
 
 push @nums, 0;
 my @sorted = sort { $a <=> $b } @nums;
-push @sorted, ($sorted[(@sorted) - 1] + 3);
+push @sorted, ($sorted[-1] + 3);
 
 my %array;
 foreach my $num (@sorted) {
