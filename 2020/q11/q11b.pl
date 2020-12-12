@@ -56,11 +56,7 @@ sub switchSeat {
     my $adjacent = 0;
     for my $s (-1 .. 1) {
         for my $t (-1 .. 1) {
-            if (!($s == 0 and $t == 0)
-            and 0 <= $x + $s and $x + $s < scalar(@dSeats) 
-            and 0 <= $y + $t and $y + $t < scalar(@{$dSeats[$x]})) {
-                $adjacent++ if $dSeats[$x + $s][$y + $t] eq '#';
-            }
+            $adjacent++ if !($s == 0 and $t == 0) and lookupDirection($x, $y, $s, $t);
         }
     }
 
@@ -68,9 +64,26 @@ sub switchSeat {
         $nSeats[$x][$y] = '#';
         return 1;
     }
-    if ($seat eq '#' and $adjacent >= 4) {
+    if ($seat eq '#' and $adjacent >= 5) {
         $nSeats[$x][$y] = 'L';
         return 1;
+    }
+    return 0;
+}
+
+sub lookupDirection {
+    my ($curX, $curY, $diffX, $diffY) = @_;
+
+    # Add first iteration to current coordinate
+    $curX += $diffX;
+    $curY += $diffY;
+
+    while (0 <= $curX and $curX < scalar(@dSeats)
+    and 0 <= $curY and $curY < scalar(@{$dSeats[$curX]})) {
+        return 1 if $dSeats[$curX][$curY] eq '#';
+        return 0 if $dSeats[$curX][$curY] eq 'L';
+        $curX += $diffX;
+        $curY += $diffY;
     }
     return 0;
 }
