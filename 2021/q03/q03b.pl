@@ -41,8 +41,8 @@ sub mostCommonValue {
 
     # BitString
     for (my $bitStringIndex = 0; $bitStringIndex < $arrayLength; $bitStringIndex++) {
-        if ($$bitStorageRef[$bitStringIndex]{$position} == $commonDigitOnPosition) {
-            unshift @newArray, $$arrayRef[$bitStringIndex];
+        if ($bitStorageRef->[$bitStringIndex]{$position} == $commonDigitOnPosition) {
+            unshift @newArray, $arrayRef->[$bitStringIndex];
         }
     }
 
@@ -61,7 +61,7 @@ sub generateBitStorage {
 
     for (my $bitIndex = 0; $bitIndex < scalar(@$bitStringArrayRef); $bitIndex++) {
         # Array<Bit>
-        my @bits = ($$bitStringArrayRef[$bitIndex] =~ /(\d)/g);
+        my @bits = ($bitStringArrayRef->[$bitIndex] =~ /(\d)/g);
 
         for (my $bitPosition = 0; $bitPosition < scalar(@bits); $bitPosition++) {
             my $bit = $bits[$bitPosition];

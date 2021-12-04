@@ -32,7 +32,7 @@ foreach my $hashRef (@array) {
     $gamma *= 2;
     $epsilon *= 2;
     # Map<Bit,Count>
-    if ($$hashRef{0} > $$hashRef{1}) {
+    if ($hashRef->{0} > $hashRef->{1}) {
         $epsilon++;
     } else {
         $gamma++;
