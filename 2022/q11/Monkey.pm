@@ -10,8 +10,8 @@ sub new {
         _items => _getStartingItemsFromString(shift), # Comma separated value of starting items
         _operation => shift, # Leave only "old + ..." part of the op
         _test => shift, # Leave only the digit divisible
-        _receiverIfTrue => shift, # Leave only the digit divisible
-        _receiverIfFalse => shift, # Leave only the digit divisible
+        _receiverIfTrue => shift, # Leave only the digit of receiving monkey
+        _receiverIfFalse => shift, # Leave only the digit of receiving monkey
         _operationCount => 0,
     };
     bless $self, $class;
