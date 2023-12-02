@@ -29,7 +29,6 @@ foreach my $line (@input) {
     my @lastDigit = $newLine =~ /.*(\d)/;
 
     my $lineDigit = join '', ($firstDigit[0], $lastDigit[0]);
-    print "$lineDigit", "\n";
     $sum = $sum + $lineDigit;
 }
 
