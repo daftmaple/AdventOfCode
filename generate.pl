@@ -2,39 +2,42 @@
 use strict;
 use warnings;
 
-die "Need more arguments. Format: $0 <year> <day> <problem a/b>" if (@ARGV != 3);
+die "Need more arguments. Format: $0 <year> <day>" if (@ARGV != 2);
 
 my $year = $ARGV[0];
 my $day = sprintf("%02d", $ARGV[1]);
-my $problem = $ARGV[2];
 
 use File::Basename qw( fileparse );
+
+my $directory = "$year/q$day";
+
 use File::Path qw( make_path );
-
-my $filePath = "$year/q$day/q$day$problem.pl";
-
-my ( $file, $directory ) = fileparse $filePath;
-
 if ( !-d $directory ){
     make_path $directory;
 }
 
-my $inputFilePath = "$year/q$day/q$day\_input.txt";
-
 # Create input file if doesn't exist
+my $inputFilePath = "$directory/q$day\_input.txt";
 if (-e $inputFilePath) {
-    print "Input file $directory already exists\n";
+    print "Input file in $directory already exists\n";
 } else {
     open my $inputFh, ">", $inputFilePath;
     close $inputFh;
 }
 
-if (-e $filePath) {
-    print "File $file in $directory already exists\n";
-    exit;
-}
+# Create problem file if doesn't exist;
+createFile("$directory/q${day}a.pl");
+createFile("$directory/q${day}b.pl");
 
-my $templateFile = <<"FINAL";
+sub createFile {
+    my ( $filePath ) = @_;
+    my ( $file, $directory ) = fileparse $filePath;
+    if (-e $filePath) {
+        print "File $file in $directory already exists\n";
+        return;
+    }
+
+    my $templateFile = <<"FINAL";
 #!/usr/bin/perl
 use strict;
 use warnings;
@@ -48,6 +51,7 @@ foreach my \$line (\@input) {
 }
 FINAL
 
-open my $scriptFh, ">", $filePath;
-print $scriptFh $templateFile;
-close $scriptFh;
+    open my $scriptFh, ">", $filePath;
+    print $scriptFh $templateFile;
+    close $scriptFh;
+}
