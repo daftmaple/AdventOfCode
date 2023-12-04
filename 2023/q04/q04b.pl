@@ -39,7 +39,7 @@ foreach my $line (@input) {
     $index++;
 }
 
-my $result = eval join '+', @array;
+my $result = sum @array;
 
 print "$result\n";
 
