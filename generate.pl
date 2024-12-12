@@ -29,6 +29,7 @@ if (-e $inputFilePath) {
 createFile("$directory/q${day}a.pl");
 createFile("$directory/q${day}b.pl");
 
+
 sub createFile {
     my ( $filePath ) = @_;
     my ( $file, $directory ) = fileparse $filePath;
@@ -54,4 +55,6 @@ FINAL
     open my $scriptFh, ">", $filePath;
     print $scriptFh $templateFile;
     close $scriptFh;
+
+    system("chmod u+x $filePath");
 }
